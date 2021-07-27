@@ -1,6 +1,7 @@
 package browserStack;
 
 import java.net.MalformedURLException;
+
 import java.net.URL;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -16,13 +17,15 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+
+
 class IPhone implements Runnable {
 	public void run() {
 		Hashtable<String, String> capsHashtable = new Hashtable<String, String>();
 		capsHashtable.put("device", "iPhone 12 Pro");
 		capsHashtable.put("real_mobile", "true");
 		capsHashtable.put("os_version", "14");
-		capsHashtable.put("build", "Homework Build");
+		capsHashtable.put("build", Homework.buildName);
 		capsHashtable.put("name", "IPhone");
 		Homework r1 = new Homework();
 		r1.executeTest(capsHashtable);
@@ -35,7 +38,7 @@ class Chrome implements Runnable {
 		capsHashtable.put("browser_version", "latest");
 		capsHashtable.put("os", "Windows");
 		capsHashtable.put("os_version", "10");
-		capsHashtable.put("build", "Homework Build");
+		capsHashtable.put("build", Homework.buildName);
 		capsHashtable.put("name", "Chrome");
 		Homework r1 = new Homework();
     r1.executeTest(capsHashtable);
@@ -48,7 +51,7 @@ class Safari implements Runnable {
 		capsHashtable.put("browser_version", "14");
 		capsHashtable.put("os", "OS X");
 		capsHashtable.put("os_version", "Big Sur");
-		capsHashtable.put("build", "Homework Build");
+		capsHashtable.put("build", Homework.buildName);
 		capsHashtable.put("name", "Safari");
 		Homework r1 = new Homework();
     r1.executeTest(capsHashtable);
@@ -61,7 +64,7 @@ class FireFox implements Runnable {
 		capsHashtable.put("browser_version", "latest");
 		capsHashtable.put("os", "Windows");
 		capsHashtable.put("os_version", "7");
-		capsHashtable.put("build", "Homework Build");
+		capsHashtable.put("build", Homework.buildName);
 		capsHashtable.put("name", "FireFox");
 		Homework r1 = new Homework();
     r1.executeTest(capsHashtable);
@@ -74,7 +77,7 @@ class Edge implements Runnable {
 		capsHashtable.put("browser_version", "latest");
 		capsHashtable.put("os", "Windows");
 		capsHashtable.put("os_version", "10");
-		capsHashtable.put("build", "Homework Build");
+		capsHashtable.put("build", Homework.buildName);
 		capsHashtable.put("name", "Edge");
 		Homework r1 = new Homework();
     r1.executeTest(capsHashtable);
@@ -82,9 +85,12 @@ class Edge implements Runnable {
 }
 public class Homework {
 
-  public static final String USERNAME = "leevardaro_sqiF2Y";
-  public static final String AUTOMATE_KEY = "XNR17aPXPp6NaNZNvyD2";
-  public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
+  //public static final String username = "leevardaro_sqiF2Y";
+  //public static final String accessKey = "XNR17aPXPp6NaNZNvyD2";
+  public String username = System.getenv("BROWSERSTACK_username");
+  public String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
+  public static String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
+  public String URL = "https://" + username + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
   public static final String baseUrl = "https://jobs.workable.com/";
   //variables for assertions
   public static final String expectedTitle = "Job Search - Job Finder - Job Listings | Workable for Job Seekers";
