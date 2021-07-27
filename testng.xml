@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="browserStack.Homework"/>
+      <class name="browserStack.Edge"/>
+      <class name="browserStack.Safari"/>
+      <class name="browserStack.Chrome"/>
+      <class name="browserStack.IPhone"/>
+      <class name="browserStack.FireFox"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
