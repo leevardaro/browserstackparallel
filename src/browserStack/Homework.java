@@ -85,8 +85,7 @@ class Edge implements Runnable {
 }
 public class Homework {
 
-  //public static final String username = "leevardaro_sqiF2Y";
-  //public static final String accessKey = "XNR17aPXPp6NaNZNvyD2";
+
   public String username = System.getenv("BROWSERSTACK_username");
   public String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
   public static String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
