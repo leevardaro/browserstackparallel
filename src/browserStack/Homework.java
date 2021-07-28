@@ -86,10 +86,10 @@ class Edge implements Runnable {
 public class Homework {
 
 
-  public String username = System.getenv("BROWSERSTACK_username");
-  public String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
+  public static String username = System.getenv("BROWSERSTACK_username");
+  public static String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
   public static String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
-  public String URL = "https://" + username + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
+  public static String URL = "https://" + username + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub";
   public static final String baseUrl = "https://jobs.workable.com/";
   //variables for assertions
   public static final String expectedTitle = "Job Search - Job Finder - Job Listings | Workable for Job Seekers";
